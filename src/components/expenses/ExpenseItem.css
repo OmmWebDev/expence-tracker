@@ -1,0 +1,22 @@
+.expense{
+    margin: 10px 0;
+    padding: 10px 15px;
+    border: 1px solid red;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: aquamarine;
+}
+.expense .date{
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+.expense .expense-item-name{
+    font-size: 1.1rem;
+}
+.expense span{
+    padding: 6px 15px;
+    background-color: darkgreen;
+    border-radius: 13px;
+    color: #fff;
+}

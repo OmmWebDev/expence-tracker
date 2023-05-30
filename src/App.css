@@ -1,0 +1,40 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+section{
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.expense-container{
+	height: auto;
+	width: 70%;
+	margin: 30px 0 0 0;
+	position: relative;
+}
+.expense-container h2::before{
+	content: "";
+	position: absolute;
+	height: 3px;
+	width: 150px;
+	background-color: black;
+	left: 25%;
+	top: 16px;
+}
+.expenses-box{
+	padding: 10px 20px;
+}
+.total-price{
+	position: absolute;
+	right: 0;
+	width: fit-content;
+	color: #fff;
+	padding: 15px;
+	margin: 0 20px;
+	background-color: indigo;
+}
