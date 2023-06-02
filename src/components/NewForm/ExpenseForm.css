@@ -1,0 +1,10 @@
+form{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+form input{
+    width: 250px;
+    padding: 7px 10px;
+    margin: 15px;
+}

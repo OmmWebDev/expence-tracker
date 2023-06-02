@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./App.css";
 import ExpenseItem from "./components/expenses/ExpenseItem";
-import AllItems from "./AllItems.json";
 import Card from './components/ui/Card';
 import NewExpense from './components/NewForm/NewExpense';
 
 const App = () => {
+
+    const [expense, setExpense] = useState([]);
 
     function totalPrice(array, property){
         let sum = array.reduce(function(accu, obj){
@@ -15,22 +16,27 @@ const App = () => {
         return sum;
     }
 
+    let getExpenseItem = (newExpenseItem) => {
+        let updatedExpense = [newExpenseItem, ...expense];
+        setExpense(updatedExpense);
+    }
+
     return (
         <>
             <section>
-                <NewExpense/>
+                <NewExpense onAddExpense={getExpenseItem} />
                 <Card className="expense-container">
                     <h2>Monthly Expenses</h2>
                     <div className="expenses-box">
                         {
-                            AllItems.map(function(elm, index){
+                            expense.map(function(elm, index){
                                 return (
-                                    <ExpenseItem itemName={elm.itemName} itemPrice={elm.itemPrice} key={index} />
+                                    <ExpenseItem itemDate={elm.itemAddDate} itemName={elm.itemName} itemPrice={elm.itemPrice} key={index} />
                                 )
                             })
                         }
-                        <p className="total-price">Total: ${totalPrice(AllItems, 'itemPrice')}</p>
                     </div>
+                    <p className='total-price'>Total - ${totalPrice(expense, "itemPrice")}</p>
                 </Card>
             </section>
         </>
